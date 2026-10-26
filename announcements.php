@@ -610,6 +610,9 @@ class plgGroupsAnnouncements extends \Hubzero\Plugin\Plugin
 			return $this->_list();
 		}
 
+		// Check for request forgeries
+		Request::checkToken();
+
 		// Set to deleted state
 		$model->set('state', Hubzero\Item\Announcement::STATE_DELETED);
 
